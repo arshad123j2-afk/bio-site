@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.Arshad — Bio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1c2128;
+    --paper: #16202a;
+    --paper-deep: #0f1720;
+    --ivory: #f0ece2;
+    --ivory-dim: #c9c4b7;
+    --gold: #c99b3f;
+    --gold-dim: #8a7143;
+    --rule: rgba(240,236,226,0.16);
+    --max-w: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ivory);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #bg-video{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  #bg-overlay{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(15,23,32,0.78);
+    z-index: -1;
+  }
+
+  ::selection{ background: var(--gold); color: var(--paper-deep); }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero .wrap{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+
+  .kicker{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin: 0 0 18px;
+  }
+
+  h1.name{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .hero-meta{
+    font-size: 0.95rem;
+    color: var(--ivory-dim);
+    text-align: right;
+    padding-bottom: 8px;
+    border-right: 1px solid var(--rule);
+    padding-right: 18px;
+  }
+
+  .hero-meta div + div{ margin-top: 6px; }
+
+  @media (max-width: 640px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-meta{ text-align: left; border-right: none; border-top: 1px solid var(--rule); padding: 16px 0 0; }
+  }
+
+  /* ---------- Section shell ---------- */
+
+  section{ padding: 68px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type{ border-bottom: none; }
+
+  .label{
+    font-size: 0.8rem;
+    color: var(--gold-dim);
+    margin: 0 0 28px;
+  }
+
+  /* ---------- About ---------- */
+
+  .about-grid{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 640px){
+    .about-grid{ grid-template-columns: 1fr; }
+  }
+
+  .about-grid h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .about-body p{
+    font-size: 1.05rem;
+    max-width: 62ch;
+    margin: 0 0 18px;
+    color: #e4e0d4;
+  }
+
+  .about-body p:first-child::first-letter{
+    font-family: 'Fraunces', serif;
+    font-size: 3.4rem;
+    line-height: 0.8;
+    float: left;
+    padding-right: 10px;
+    padding-top: 6px;
+    color: var(--gold);
+  }
+
+  /* ---------- Timeline / Work ---------- */
+
+  .entry{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .entry:first-of-type{ border-top: none; }
+
+  .entry .when{
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+    padding-top: 4px;
+  }
+
+  .entry .role{
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0 0 6px;
+  }
+
+  .entry .desc{
+    font-size: 0.96rem;
+    color: #cfcabd;
+    margin: 0;
+    max-width: 55ch;
+  }
+
+  @media (max-width: 640px){
+    .entry{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ---------- Elsewhere / links ---------- */
+
+  .elsewhere-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    padding: 0; margin: 0;
+    list-style: none;
+  }
+
+  .elsewhere-list a{
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .elsewhere-list a:hover{
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    padding: 40px 0 60px;
+    font-size: 0.82rem;
+    color: var(--ivory-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+
+  /* Accessible focus state */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+  <video id="bg-video" autoplay muted loop playsinline></video>
+  <div id="bg-overlay"></div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker"><!-- one line describing what you do --> First-year student, always curious</p>
+        <h1 class="name">A.Arshad</h1>
+      </div>
+      <div class="hero-meta">
+        <div>Based in <!-- your city -->Nagercoil, India</div>
+        <div><!-- your email -->arshad123j3@gmail.com</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <h2>About</h2>
+        <div class="about-body">
+          <!--
+            Replace this paragraph with two or three real paragraphs about yourself.
+            Write like you're telling a friend what you actually do and care about —
+            specific details beat generic claims ("I've shipped three design systems"
+            beats "I'm passionate about design").
+          -->
+          <p>I'm a first-year student from Nagercoil, still figuring out exactly where my interests will take me, but enjoying the process. Outside of coursework, most of my week revolves around three things: football, the gym, and a book I'm slowly making my way through.</p>
+          <p>Football is where I unwind — there's something about a game that clears my head better than anything else. The gym is more of a discipline than a hobby at this point; I like the quiet routine of showing up and doing the work, even on days I don't feel like it. And reading is the constant — fiction mostly, though I'll pick up almost anything if the first few pages hook me. Somewhere between these three, I'm learning a lot about consistency, patience, and what it means to actually stick with something.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="path">
+    <div class="wrap">
+      <p class="label">Along the way</p>
+
+      <!-- Duplicate .entry blocks for each milestone, project, or school year -->
+      <div class="entry">
+        <div class="when">2025 — now</div>
+        <div>
+          <p class="role">First Year, Your College Name</p>
+          <p class="desc">What you're studying and one thing you're enjoying or exploring so far.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2024</div>
+        <div>
+          <p class="role">School / Where it started</p>
+          <p class="desc">The first thing that pointed you toward what you're studying now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="elsewhere">
+    <div class="wrap">
+      <p class="label">Find me elsewhere</p>
+      <ul class="elsewhere-list">
+        <li><a href="mailto:arshad123j3@gmail.com">Email</a></li>
+        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://instagram.com/m_a_nnn1" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+      <span>&copy; <span id="year"></span> A.Arshad</span>
+      <span>Made with care.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Random background video on each load
+    var bgVideos = [
+      'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-a-car-driving-through-a-forest-in-the-fall-33718-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4',
+      'https://assets.mixkit.co/videos/preview/mixkit-city-traffic-at-night-5-large.mp4'
+    ];
+    var chosen = bgVideos[Math.floor(Math.random() * bgVideos.length)];
+    var video = document.getElementById('bg-video');
+    video.src = chosen;
+  </script>
+
+</body>
+</html>
